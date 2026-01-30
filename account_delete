@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURIZE | Data Purge Protocol</title>
+    <!-- Lato Font for consistency -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #60A5FA;
+            --bg: #01152E;
+            --text: #E2E8F0;
+            --warning: #EF4444;
+            --input-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .system-msg {
+            font-style: italic;
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .warning-box {
+            border-left: 4px solid var(--warning);
+            background: rgba(239, 68, 68, 0.1);
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 0.85em;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75em;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+        }
+
+        input {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            padding: 15px;
+            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.75em;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .error {
+            color: var(--warning);
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Data Purge Protocol</h1>
+        <span class="system-msg">[SYSTEM MESSAGE]: Account deletion initialization detected.</span>
+        
+        <div class="warning-box">
+            <strong>PERMANENT CONSEQUENCE:</strong> Initiating this protocol will purge your <strong>Hunter Rank, XP, Health, and Inventory</strong>. This action is synchronized across the System and cannot be reversed.
+        </div>
+
+        <div class="input-group">
+            <label for="hunterEmail">REGISTERED PLAYER EMAIL</label>
+            <input type="email" id="hunterEmail" placeholder="Enter your registered email..." required>
+            <div id="emailError" class="error">A valid Player email is required.</div>
+        </div>
+        
+        <button onclick="requestDeletion()" class="submit-btn">
+            Finalize Purge Request
+        </button>
+
+        <p style="margin-top: 30px; font-size: 0.85em; color: rgba(255,255,255,0.6);">
+            Once submitted, your request will be manually processed within 7 business days.
+        </p>
+
+        <div class="footer">
+            AURIZE | BETA V1.0.0 | SYSTEM SECURED
+        </div>
+    </div>
+
+    <script>
+        function requestDeletion() {
+            const emailInput = document.getElementById('hunterEmail');
+            const errorMsg = document.getElementById('emailError');
+            const email = emailInput.value.trim();
+
+            // Simple validation
+            if (!email || !email.includes('@')) {
+                errorMsg.style.display = 'block';
+                emailInput.style.borderColor = '#EF4444';
+                return;
+            }
+
+            errorMsg.style.display = 'none';
+            emailInput.style.borderColor = 'rgba(96, 165, 250, 0.3)';
+
+            // Construct the mailto link
+            const subject = "AURIZE Account Deletion Request";
+            const body = `SYSTEM PURGE REQUEST:\n\nPlease delete the AURIZE account associated with the following identity:\n\nPlayer Email: ${email}\n\nI understand that this action is permanent and my Rank and XP will be lost.`;
+            
+            // Redirect to mail client
+            window.location.href = `mailto:aurizedeveloper@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+</body>
+</html>
