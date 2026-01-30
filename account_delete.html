@@ -130,6 +130,14 @@
             margin-top: 5px;
             display: none;
         }
+
+        #statusMsg {
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: var(--accent);
+            display: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -152,8 +160,10 @@
             Finalize Purge Request
         </button>
 
+        <div id="statusMsg">INITIALIZING MAIL CLIENT... PLEASE SEND THE DRAFT.</div>
+
         <p style="margin-top: 30px; font-size: 0.85em; color: rgba(255,255,255,0.6);">
-            Once submitted, your request will be manually processed within 7 business days.
+            Once submitted via email, your request will be manually processed within 7 business days.
         </p>
 
         <div class="footer">
@@ -165,6 +175,7 @@
         function requestDeletion() {
             const emailInput = document.getElementById('hunterEmail');
             const errorMsg = document.getElementById('emailError');
+            const statusMsg = document.getElementById('statusMsg');
             const email = emailInput.value.trim();
 
             // Simple validation
@@ -176,13 +187,28 @@
 
             errorMsg.style.display = 'none';
             emailInput.style.borderColor = 'rgba(96, 165, 250, 0.3)';
+            statusMsg.style.display = 'block';
 
-            // Construct the mailto link
-            const subject = "AURIZE Account Deletion Request";
-            const body = `SYSTEM PURGE REQUEST:\n\nPlease delete the AURIZE account associated with the following identity:\n\nPlayer Email: ${email}\n\nI understand that this action is permanent and my Rank and XP will be lost.`;
+            // Construct the mailto link parts
+            const recipient = "aurizedeveloper@gmail.com";
+            const subject = encodeURIComponent("AURIZE Account Deletion Request");
+            const body = encodeURIComponent(`SYSTEM PURGE REQUEST:\n\nPlease delete the AURIZE account associated with the following identity:\n\nPlayer Email: ${email}\n\nI understand that this action is permanent and my Rank and XP will be lost.`);
             
-            // Redirect to mail client
-            window.location.href = `mailto:aurizedeveloper@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            // Construct full URL
+            const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+            // Robust redirection logic:
+            // Create a hidden link, add it to the body, click it, and remove it.
+            // This is often more reliable than window.location.href in mobile browsers.
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoUrl;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            
+            setTimeout(() => {
+                tempLink.click();
+                document.body.removeChild(tempLink);
+            }, 100);
         }
     </script>
 </body>
