@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | AURIZE System</title>
+    <!-- Importing Lato for consistency with the App -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #010a13;
+            --surface-color: #0a1622;
+            --accent-blue: #60a5fa;
+            --accent-glow: rgba(96, 165, 250, 0.4);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: rgba(96, 165, 250, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 0%, #0c1e33 0%, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-transform: uppercase;
+        }
+
+        h2::before {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--accent-blue);
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(96, 165, 250, 0.03), transparent);
+            pointer-events: none;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        strong {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 10px;
+        }
+
+        li::before {
+            content: "▶";
+            color: var(--accent-blue);
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px var(--accent-blue);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="last-updated">System Logs: Privacy Protocol</div>
+            <h1>AURIZE Privacy Policy</h1>
+            <p>Effective Date: January 30, 2026</p>
+        </header>
+
+        <div class="section">
+            <p>Welcome to <strong>AURIZE</strong> ("the App"). AURIZE is a fitness RPG system designed to help Players track their physical evolution. This Privacy Policy describes how we collect, use, and protect your information when you use the System.</p>
+        </div>
+
+        <h2>1. Information Collection and Use</h2>
+        
+        <div class="section">
+            <h3>1.1 Camera Data</h3>
+            <p>AURIZE utilizes your device's camera specifically for the <strong>Exercise Tracking</strong> feature (Push-ups and Squats).</p>
+            <ul>
+                <li><span><strong>Purpose:</strong> The System uses computer vision to detect body movements and verify that the Player has completed the assigned repetitions.</span></li>
+                <li><span><strong>Storage:</strong> We <strong>do not</strong> record, store, or transmit any video or image data to our servers. All processing happens locally and in real-time on your device.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>1.2 Location Data</h3>
+            <p>AURIZE utilizes your device's GPS and location services for the <strong>Running Tracker</strong> and <strong>Leaderboard</strong> features.</p>
+            <ul>
+                <li><span><strong>Tracking:</strong> We access "Fine Location" to calculate distance, speed, and duration of your quests. This only occurs while the App is active.</span></li>
+                <li><span><strong>Leaderboard:</strong> The System periodically updates your last known coordinates to show other Players in your immediate vicinity (Nearby mode).</span></li>
+                <li><span><strong>Requirement:</strong> Fine location is necessary for the accuracy of movement synchronization.</span></li>
+            </ul>
+        </div>
+
+        <h2>2. Data Storage (Firebase)</h2>
+        <div class="section">
+            <p>We use Google Firebase to ensure your progression is synchronized across the System:</p>
+            <ul>
+                <li><span><strong>Authentication:</strong> Your email and chosen username are stored securely via Firebase Authentication.</span></li>
+                <li><span><strong>Player Status:</strong> Levels, Rank (E-Rank to National Level), XP, and Health status are saved in Firestore.</span></li>
+                <li><span><strong>System Analytics:</strong> We use technical logs to identify bugs and improve System stability.</span></li>
+            </ul>
+        </div>
+
+        <h2>3. Data Security</h2>
+        <div class="section">
+            <p>The System prioritizes the protection of Player data using industry-standard encryption and Firebase security protocols. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute invulnerability.</p>
+        </div>
+
+        <h2>4. Children's Privacy</h2>
+        <div class="section">
+            <p>AURIZE is not intended for individuals under the age of 13. We do not knowingly collect personal data from children. If we discover a Player under 13 has provided data, it will be immediately deleted.</p>
+        </div>
+
+        <h2>5. Contact the Architect</h2>
+        <div class="section">
+            <p>If you have questions regarding this policy or your data, contact the developer at:</p>
+            <p><strong>Email:</strong> <a href="mailto:aurizedeveloper@gmail.com">aurizedeveloper@gmail.com</a></p>
+        </div>
+
+        <footer>
+            &copy; 2026 AURIZE System. Synchronizing Progress...
+        </footer>
+    </div>
+
+</body>
+</html>
