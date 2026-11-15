@@ -14,6 +14,7 @@
             --surface-color: #0a1622;
             --accent-blue: #60a5fa;
             --accent-glow: rgba(96, 165, 250, 0.4);
+            --accent-red: #f87171;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --border-color: rgba(96, 165, 250, 0.2);
@@ -30,7 +31,7 @@
             line-height: 1.8;
             color: var(--text-primary);
             background-color: var(--bg-color);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 50% 0%, #0c1e33 0%, transparent 50%),
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -84,6 +85,7 @@
             height: 24px;
             background: var(--accent-blue);
             box-shadow: 0 0 10px var(--accent-blue);
+            flex-shrink: 0;
         }
 
         h3 {
@@ -115,10 +117,23 @@
             pointer-events: none;
         }
 
+        .section.warning {
+            border-color: rgba(248, 113, 113, 0.45);
+        }
+
+        .section.warning strong {
+            color: var(--accent-red);
+        }
+
         p {
             margin-bottom: 15px;
             color: var(--text-secondary);
             font-weight: 400;
+        }
+
+        p:last-child,
+        ul:last-child {
+            margin-bottom: 0;
         }
 
         strong {
@@ -129,6 +144,7 @@
         ul {
             list-style: none;
             padding-left: 5px;
+            margin-bottom: 15px;
         }
 
         li {
@@ -143,6 +159,7 @@
             color: var(--accent-blue);
             font-size: 0.7rem;
             margin-top: 5px;
+            flex-shrink: 0;
         }
 
         a {
@@ -150,11 +167,22 @@
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
+            overflow-wrap: anywhere;
         }
 
         a:hover {
             text-shadow: 0 0 10px var(--accent-blue);
             color: #fff;
+        }
+
+        .toc {
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .toc li {
+            break-inside: avoid;
+            margin-bottom: 6px;
         }
 
         footer {
@@ -170,7 +198,9 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.15rem; }
             .section { padding: 20px; }
+            .toc { columns: 1; }
         }
     </style>
 </head>
@@ -180,57 +210,205 @@
         <header>
             <div class="last-updated">System Logs: Privacy Protocol</div>
             <h1>AURIZE Privacy Policy</h1>
-            <p>Effective Date: January 30, 2026</p>
+            <p>Effective Date: January 30, 2026 &nbsp;·&nbsp; Last Updated: November 15, 2026</p>
         </header>
 
         <div class="section">
-            <p>Welcome to <strong>AURIZE</strong> ("the App"). AURIZE is a fitness RPG system designed to help Players track their physical evolution. This Privacy Policy describes how we collect, use, and protect your information when you use the System.</p>
+            <p>Welcome to <strong>AURIZE</strong> ("the App", "we", "us"). AURIZE is a fitness RPG system designed to help Players track their physical evolution. This Privacy Policy explains what information we collect when you use the App on Android or iOS, why we collect it, who it is shared with, how long we keep it, and how you can delete it.</p>
+            <p>In short: your camera video never leaves your device, we do not sell your data, we do not show ads, and you can delete your account and data from inside the App at any time.</p>
         </div>
 
-        <h2>1. Information Collection and Use</h2>
-        
         <div class="section">
-            <h3>1.1 Camera Data</h3>
-            <p>AURIZE utilizes your device's camera specifically for the <strong>Exercise Tracking</strong> feature (Push-ups and Squats).</p>
+            <h3>Contents</h3>
+            <ul class="toc">
+                <li><span><a href="#collect">1. Information We Collect</a></span></li>
+                <li><span><a href="#use">2. How We Use It</a></span></li>
+                <li><span><a href="#visible">3. What Other Players Can See</a></span></li>
+                <li><span><a href="#share">4. Service Providers</a></span></li>
+                <li><span><a href="#retention">5. How Long We Keep Data</a></span></li>
+                <li><span><a href="#delete">6. Deleting Your Account</a></span></li>
+                <li><span><a href="#choices">7. Your Choices &amp; Rights</a></span></li>
+                <li><span><a href="#security">8. Data Security</a></span></li>
+                <li><span><a href="#children">9. Children's Privacy</a></span></li>
+                <li><span><a href="#changes">10. Changes</a></span></li>
+                <li><span><a href="#contact">11. Contact</a></span></li>
+            </ul>
+        </div>
+
+        <h2 id="collect">1. Information We Collect</h2>
+
+        <div class="section">
+            <h3>1.1 Account Information</h3>
             <ul>
-                <li><span><strong>Purpose:</strong> The System uses computer vision to detect body movements and verify that the Player has completed the assigned repetitions.</span></li>
-                <li><span><strong>Storage:</strong> We <strong>do not</strong> record, store, or transmit any video or image data to our servers. All processing happens locally and in real-time on your device.</span></li>
+                <li><span><strong>Email address and password:</strong> used to create and sign in to your account through Firebase Authentication. Your password is handled by Firebase and is never visible to us.</span></li>
+                <li><span><strong>Username:</strong> the Player name you choose.</span></li>
             </ul>
         </div>
 
         <div class="section">
-            <h3>1.2 Location Data</h3>
-            <p>AURIZE utilizes your device's GPS and location services for the <strong>Running Tracker</strong> and <strong>Leaderboard</strong> features.</p>
+            <h3>1.2 Profile Picture (Optional)</h3>
             <ul>
-                <li><span><strong>Tracking:</strong> We access "Fine Location" to calculate distance, speed, and duration of your quests. This only occurs while the App is active.</span></li>
-                <li><span><strong>Leaderboard:</strong> The System periodically updates your last known coordinates to show other Players in your immediate vicinity (Nearby mode).</span></li>
-                <li><span><strong>Requirement:</strong> Fine location is necessary for the accuracy of movement synchronization.</span></li>
+                <li><span>If you choose to set one, the photo you pick from your photo library is uploaded and stored in Firebase Storage so it can appear on your profile, Hunter ID card and leaderboard entry.</span></li>
+                <li><span>We only access the single photo you select. We do not scan or upload anything else from your photo library.</span></li>
             </ul>
         </div>
 
-        <h2>2. Data Storage (Firebase)</h2>
         <div class="section">
-            <p>We use Google Firebase to ensure your progression is synchronized across the System:</p>
+            <h3>1.3 Camera (Exercise Tracking)</h3>
+            <p>AURIZE uses your device's camera for <strong>AI Exercise Tracking</strong> (push-ups, squats and sit-ups) in daily quests, duels and raids.</p>
             <ul>
-                <li><span><strong>Authentication:</strong> Your email and chosen username are stored securely via Firebase Authentication.</span></li>
-                <li><span><strong>Player Status:</strong> Levels, Rank (E-Rank to National Level), XP, and Health status are saved in Firestore.</span></li>
-                <li><span><strong>System Analytics:</strong> We use technical logs to identify bugs and improve System stability.</span></li>
+                <li><span><strong>Purpose:</strong> on-device computer vision detects body position to count your repetitions and check your form.</span></li>
+                <li><span><strong>Storage:</strong> we <strong>do not</strong> record, store or transmit any video or images. All processing happens locally, in real time, on your device. Only the resulting <strong>rep count</strong> is saved.</span></li>
             </ul>
         </div>
 
-        <h2>3. Data Security</h2>
         <div class="section">
-            <p>The System prioritizes the protection of Player data using industry-standard encryption and Firebase security protocols. However, no method of electronic storage is 100% secure, and we cannot guarantee absolute invulnerability.</p>
+            <h3>1.4 Location</h3>
+            <p>AURIZE uses your device's precise location (GPS) for the <strong>Running Tracker</strong> and the <strong>Nearby Leaderboard</strong>.</p>
+            <ul>
+                <li><span><strong>Running quests:</strong> while a running quest is in progress, the App reads your location to measure distance and pace. This <strong>continues in the background</strong> during that run (for example, with your phone locked in your pocket) so the run is measured correctly. Your device shows a location indicator while this is happening. Tracking stops as soon as you leave the run screen. Your route is <strong>not</strong> stored; only the total distance is saved.</span></li>
+                <li><span><strong>Nearby Leaderboard:</strong> when you open the Nearby leaderboard, your current coordinates are saved to your profile. Other signed-in Players' apps use these saved coordinates to work out who is within range of them. The App only displays that a Player is nearby; it never displays anyone's location. Your saved coordinates are updated each time you open the Nearby leaderboard and are removed when you delete your account.</span></li>
+                <li><span>Location is never used for advertising and is never collected when you are not running a quest or viewing the Nearby leaderboard.</span></li>
+            </ul>
         </div>
 
-        <h2>4. Children's Privacy</h2>
         <div class="section">
-            <p>AURIZE is not intended for individuals under the age of 13. We do not knowingly collect personal data from children. If we discover a Player under 13 has provided data, it will be immediately deleted.</p>
+            <h3>1.5 Motion &amp; Activity</h3>
+            <ul>
+                <li><span>During running quests, the App reads your device's step counter and motion activity (for example, whether you appear to be walking, running or in a vehicle). This is used to count distance on a treadmill or when GPS is weak, and to reject runs recorded from a vehicle.</span></li>
+                <li><span>This data is processed on your device. Only the run result is saved.</span></li>
+            </ul>
         </div>
 
-        <h2>5. Contact the Architect</h2>
         <div class="section">
-            <p>If you have questions regarding this policy or your data, contact the developer at:</p>
+            <h3>1.6 Game Progress</h3>
+            <p>To sync your progress across sessions and devices, we store your level, rank, XP, health, Dungeon Points, Room Cards, name tags, streaks, quest history, raid and duel results, and daily limits.</p>
+        </div>
+
+        <div class="section">
+            <h3>1.7 Social Features</h3>
+            <ul>
+                <li><span><strong>Friends, friend requests and blocks</strong> you create.</span></li>
+                <li><span><strong>Duel challenges and duels:</strong> who you dueled, the exercises and the scores.</span></li>
+                <li><span><strong>Chat messages:</strong> messages you send to friends or duel opponents. Chats are temporary by design (see Section 5). Offensive words are automatically masked.</span></li>
+                <li><span><strong>Reports:</strong> if you report a message, the report (including the message and the Players involved) is kept for moderation.</span></li>
+                <li><span><strong>Online status:</strong> whether you are currently online, shown to your friends.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>1.8 Notifications</h3>
+            <ul>
+                <li><span>If you allow notifications, we store a <strong>push notification token</strong> for your device so we can send you duel challenges, friend requests and similar alerts.</span></li>
+                <li><span>Daily quest reminders are scheduled locally on your device.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>1.9 Purchases</h3>
+            <ul>
+                <li><span>Payments are processed entirely by <strong>Google Play</strong> or the <strong>Apple App Store</strong>. We never receive or store your card or payment details.</span></li>
+                <li><span>We receive and store a purchase token or transaction ID, the product purchased, and (for subscriptions) its status and expiry date, so we can verify the purchase with the store and grant what you bought.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>1.10 Feedback &amp; Technical Logs</h3>
+            <ul>
+                <li><span>If you send feedback from the App, we store your message with your account ID so we can follow up.</span></li>
+                <li><span>Our servers keep technical logs (such as errors and request times) to find bugs and keep the System stable. We do not use third-party analytics, advertising or tracking SDKs.</span></li>
+            </ul>
+        </div>
+
+        <h2 id="use">2. How We Use Your Information</h2>
+        <div class="section">
+            <ul>
+                <li><span>To provide the App's features: tracking workouts, syncing progress, leaderboards, duels, friends and chat.</span></li>
+                <li><span>To verify purchases and keep the game fair (for example, validating reps and runs and preventing cheating).</span></li>
+                <li><span>To send notifications you have allowed.</span></li>
+                <li><span>To moderate chat and respond to reports, feedback and support requests.</span></li>
+                <li><span>To fix bugs and keep the service secure.</span></li>
+            </ul>
+            <p>We <strong>do not sell</strong> your personal data, we <strong>do not</strong> use it for advertising, and we <strong>do not</strong> track you across other companies' apps or websites.</p>
+        </div>
+
+        <h2 id="visible">3. What Other Players Can See</h2>
+        <div class="section">
+            <ul>
+                <li><span>Your <strong>username, profile picture, level, rank, name tag</strong> and leaderboard position.</span></li>
+                <li><span>Your <strong>online status</strong> (friends only).</span></li>
+                <li><span>Your <strong>duel scores</strong>, to the opponents you duel.</span></li>
+                <li><span>Your <strong>chat messages</strong>, to the Players you send them to.</span></li>
+                <li><span>On the Nearby leaderboard, Players near you can see that you are nearby. The App does not display your location, but it does use your last saved coordinates to calculate this (see Section 1.4).</span></li>
+            </ul>
+            <p>Your email address is never shown to other Players.</p>
+        </div>
+
+        <h2 id="share">4. Service Providers</h2>
+        <div class="section">
+            <p>We share data only with the providers needed to run the App:</p>
+            <ul>
+                <li><span><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Realtime Database, Cloud Storage, Cloud Functions and Cloud Messaging): stores your account and game data and delivers notifications. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a>.</span></li>
+                <li><span><strong>Google Play</strong> and <strong>Apple App Store</strong>: process purchases and deliver push notifications on their platforms.</span></li>
+            </ul>
+            <p>Data stored with Firebase may be processed on Google servers located outside your country. We may also disclose information if required by law.</p>
+        </div>
+
+        <h2 id="retention">5. How Long We Keep Data</h2>
+        <div class="section">
+            <ul>
+                <li><span><strong>Account and game data:</strong> kept while your account exists, and deleted when you delete your account.</span></li>
+                <li><span><strong>Friend chats:</strong> deleted automatically after 24 hours without new messages. Duel chats are deleted 15 minutes after the duel ends.</span></li>
+                <li><span><strong>Friend requests:</strong> expire after 14 days if not answered.</span></li>
+                <li><span><strong>Camera video:</strong> never stored.</span></li>
+            </ul>
+        </div>
+
+        <h2 id="delete">6. Deleting Your Account</h2>
+        <div class="section warning">
+            <p>You can permanently delete your account at any time from inside the App:</p>
+            <p><strong>Open AURIZE → System menu → Delete Account</strong>, then type <strong>DELETE</strong> to confirm.</p>
+            <p>This immediately and permanently erases:</p>
+            <ul>
+                <li><span>Your account and login (your email can no longer sign in)</span></li>
+                <li><span>Your profile, progress, quest history, items and currency</span></li>
+                <li><span>Your profile picture</span></li>
+                <li><span>Your friends, blocks, chats and duel invites</span></li>
+                <li><span>Your saved location and push notification tokens</span></li>
+            </ul>
+            <p>Deletion <strong>cannot be undone</strong>. Two kinds of record are kept after deletion: completed duel results, because they are also part of your opponent's history (your name in them is replaced with "Deleted Hunter"), and purchase records, which are needed for accounting and to prevent fraud. Reports made about chat messages may be kept for moderation.</p>
+            <p><strong>Subscriptions:</strong> deleting your account does <strong>not</strong> cancel an active subscription. Cancel it in your Google Play or App Store subscription settings.</p>
+            <p>If you cannot access the App, email us from the address on your account (see Section 11) and we will delete your account within 30 days.</p>
+        </div>
+
+        <h2 id="choices">7. Your Choices &amp; Rights</h2>
+        <div class="section">
+            <ul>
+                <li><span><strong>Permissions:</strong> you can allow or deny camera, location, motion, photos and notifications at any time in your device settings. If you deny camera or location, you can still log workouts manually.</span></li>
+                <li><span><strong>Access and correction:</strong> you can view and edit your username and profile picture in the App, or ask us for a copy of your data.</span></li>
+                <li><span><strong>Deletion:</strong> see Section 6.</span></li>
+            </ul>
+            <p>Depending on where you live, you may have additional rights under local law. Contact us to exercise them.</p>
+        </div>
+
+        <h2 id="security">8. Data Security</h2>
+        <div class="section">
+            <p>The System protects Player data with encrypted connections and Firebase security rules that restrict who can read and change each record. However, no method of electronic storage or transmission is 100% secure, and we cannot guarantee absolute security.</p>
+        </div>
+
+        <h2 id="children">9. Children's Privacy</h2>
+        <div class="section">
+            <p>AURIZE is not intended for individuals under the age of 13. We do not knowingly collect personal data from children. If we discover that a Player under 13 has provided data, it will be deleted immediately.</p>
+        </div>
+
+        <h2 id="changes">10. Changes to This Policy</h2>
+        <div class="section">
+            <p>We may update this policy when the App changes. The "Last Updated" date at the top shows when it was last revised. Please check this page from time to time.</p>
+        </div>
+
+        <h2 id="contact">11. Contact the Architect</h2>
+        <div class="section">
+            <p>If you have questions about this policy or your data, or want to request a copy or deletion of your data, contact the developer at:</p>
             <p><strong>Email:</strong> <a href="mailto:aurizedeveloper@gmail.com">aurizedeveloper@gmail.com</a></p>
         </div>
 
